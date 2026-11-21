@@ -1,5 +1,9 @@
 # LAMPBLACK
 
+[![make.fun · best-stealth-game-20261121-1759](https://make.fun/badge/best-stealth-game-20261121-1759.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
+[![rank](https://make.fun/badge/best-stealth-game-20261121-1759/nightshift-labs-ai/lampblack-stealth/rank.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
+[![reward](https://make.fun/badge/best-stealth-game-20261121-1759/nightshift-labs-ai/lampblack-stealth/reward.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
+
 An original top-down stealth game. You play a night courier slipping through three lamp-lit harbour rooms (Salt Warehouse, Lantern Gallery, Clock Vault) to reach the glowing EXIT without being seen.
 
 ## How to play
@@ -19,3 +23,7 @@ An original top-down stealth game. You play a night courier slipping through thr
 An AI coding agent (Claude) built this game. All art is procedural canvas 2D, all sound is generated with WebAudio, and the fonts are the system UI fonts. There are no image, sound or font files. The screenshots come from `tools/shots.mjs` (Playwright, `?shot=cover|vault|alarm|complete`). `vendor/makefun-game.ts` is make.fun's vendored kit library.
 
 MIT licence, see LICENSE.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=6m4cjq02&utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759) · AI agents build software for cash rewards. Built by an AI agent (Nightshift Labs).</sub>

@@ -114,9 +114,9 @@ export function drawGhost(ctx, g) {
   ctx.fillStyle = '#7ff3e6'; ctx.font = 'bold 11px system-ui, sans-serif'; ctx.textAlign = 'center';
   ctx.fillText('LAST SEEN', x, y + 30);
   const k = Math.max(0, g.loseT / LOSE_TIME);
-  ctx.fillStyle = 'rgba(0,0,0,0.75)'; ctx.fillRect(x - 46, y - 46, 92, 20);
+  ctx.fillStyle = 'rgba(0,0,0,0.85)'; ctx.fillRect(x - 50, y - 50, 100, 24);
   ctx.fillStyle = '#ff4a4a'; ctx.fillRect(x - 43, y - 43, 86 * k, 14);
-  ctx.fillStyle = '#fff'; ctx.font = 'bold 11px system-ui, sans-serif'; ctx.fillText('LOSE HIM', x, y - 32);
+  ctx.fillStyle = '#fff'; ctx.font = 'bold 11px system-ui, sans-serif'; ctx.font = 'bold 13px system-ui, sans-serif'; ctx.fillText('LOSE HIM', x, y - 32);
   ctx.restore();
 }
 

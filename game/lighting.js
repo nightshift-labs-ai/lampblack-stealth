@@ -12,8 +12,8 @@ export function drawLampGlow(ctx, lamps) {
   ctx.globalCompositeOperation = 'lighter';
   for (const L of lamps) {
     const g = ctx.createRadialGradient(L.x, L.y, 0, L.x, L.y, L.r);
-    g.addColorStop(0, 'rgba(255,190,90,0.42)');
-    g.addColorStop(0.55, 'rgba(255,150,60,0.18)');
+    g.addColorStop(0, 'rgba(255,196,100,0.62)');
+    g.addColorStop(0.55, 'rgba(255,150,60,0.30)');
     g.addColorStop(1, 'rgba(255,140,50,0)');
     ctx.fillStyle = g;
     ctx.beginPath(); ctx.arc(L.x, L.y, L.r, 0, Math.PI * 2); ctx.fill();
@@ -26,7 +26,7 @@ export function drawDarkness(ctx, lamps, w, h) {
   const d = dark.getContext('2d');
   d.globalCompositeOperation = 'source-over';
   d.clearRect(0, 0, w, h);
-  d.fillStyle = 'rgba(3,5,12,0.62)';
+  d.fillStyle = 'rgba(2,4,10,0.70)';
   d.fillRect(0, 0, w, h);
   d.globalCompositeOperation = 'destination-out';
   for (const L of lamps) {

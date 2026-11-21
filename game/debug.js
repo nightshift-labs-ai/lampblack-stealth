@@ -10,12 +10,12 @@ export function stageShot(name, game, loadRoom) {
   if (name === 'cover') {
     loadRoom(1);
     const [a, b, c] = game.guards;
-    Object.assign(game.player, { x: 497, y: 445 });
+    Object.assign(game.player, { x: 506, y: 428 });
     Object.assign(a, { x: 735, y: 350, meter: 0.55, state: 'patrol' });
     aimPast(a, game.player, -1);
     a.near = true; a.nearSide = -1;
-    Object.assign(b, { x: 1000, y: 330, meter: 1, state: 'search', ghost: { x: 1100, y: 250 }, loseT: 3 });
-    b.a = Math.atan2(250 - 330, 1100 - 1000);
+    Object.assign(b, { x: 1000, y: 330, meter: 1, state: 'search', ghost: { x: 1150, y: 300 }, loseT: 3 });
+    b.a = Math.atan2(300 - 330, 1150 - 1000);
     Object.assign(c, { x: 320, y: 230, a: Math.PI / 2, meter: 0 });
     game.prints = [];
     for (let i = 0; i < 7; i++) game.prints.push({ x: 735, y: 140 + i * 28, a: Math.PI / 2, side: i % 2 ? 1 : -1, t: 3 - i * 0.4 });

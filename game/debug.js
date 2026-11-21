@@ -14,6 +14,7 @@ export function stageShot(name, game, loadRoom) {
     Object.assign(a, { x: 735, y: 350, meter: 0.55, state: 'patrol' });
     aimPast(a, game.player, -1);
     a.near = true; a.nearSide = -1;
+    a.heard = { x: 470, y: 520, t: 2 };
     Object.assign(b, { x: 1000, y: 330, meter: 1, state: 'search', ghost: { x: 1150, y: 300 }, loseT: 3 });
     b.a = Math.atan2(300 - 330, 1150 - 1000);
     Object.assign(c, { x: 320, y: 230, a: Math.PI / 2, meter: 0 });

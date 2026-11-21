@@ -30,6 +30,14 @@ function onStep(g) {
   playStep(g.x, g.y, game.player.x, game.player.y);
 }
 
+// Unsneaked steps within 220 px are heard: the guard turns to look and grows suspicious.
+function hearStep(g, p) {
+  if (g.state === 'search' || Math.hypot(g.x - p.x, g.y - p.y) > 220) return;
+  g.heard = { x: p.x, y: p.y, t: 2 };
+  g.meter = Math.max(g.meter, Math.min(0.6, g.meter + 0.12));
+  g.scanBase = Math.atan2(p.y - g.y, p.x - g.x); g.scanT = 0; g.pause = Math.max(g.pause, 1);
+}
+
 function onAlert() { game.seenCount++; playAlert(); }
 
 function step(dt) {
@@ -44,6 +52,7 @@ function step(dt) {
   if (p.moving && !p.sneak && (p.stepT += dt) > 0.35) {
     p.stepT = 0;
     game.rings.push({ x: p.x, y: p.y, t: 0, life: 0.6, max: 50, color: 'rgba(80,240,220,A)' });
+    for (const g of game.guards) hearStep(g, p);
   }
   let alert = false;
   for (const g of game.guards) {
@@ -55,6 +64,7 @@ function step(dt) {
     if (Math.hypot(g.x - p.x, g.y - p.y) < g.r + p.r) { game.mode = 'caught'; return; }
   }
   game.vignette += ((alert ? 1 : 0) - game.vignette) * Math.min(1, dt * 3);
+  for (const g of game.guards) if (g.heard) g.heard.t -= dt;
   for (const f of game.prints) f.t += dt;
   for (const r of game.rings) r.t += dt;
   game.prints = game.prints.filter((f) => f.t < 4);
@@ -82,6 +92,7 @@ function draw() {
   R.drawCover(ctx, room.cover);
   const flash = game.frozen || Math.floor(game.clock * 10) % 2 === 0;
   for (const g of game.guards) R.drawCone(ctx, g, game.solids, flash);
+  for (const g of game.guards) R.drawHeard(ctx, g);
   R.drawRings(ctx, game.rings);
   for (const g of game.guards) R.drawGhost(ctx, g);
   for (const g of game.guards) R.drawGuard(ctx, g);

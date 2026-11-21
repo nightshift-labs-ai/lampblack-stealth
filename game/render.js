@@ -161,3 +161,15 @@ export function drawVignette(ctx, strength) {
   g.addColorStop(0, 'rgba(255,0,0,0)'); g.addColorStop(1, `rgba(200,0,0,${0.55 * strength})`);
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 }
+
+export function drawHeard(ctx, g) {
+  if (!g.heard || g.heard.t <= 0) return;
+  const { x, y } = g.heard;
+  ctx.save(); ctx.globalAlpha = Math.min(1, g.heard.t);
+  ctx.strokeStyle = '#ffb347'; ctx.lineWidth = 2; ctx.setLineDash([4, 5]);
+  ctx.beginPath(); ctx.moveTo(g.x, g.y); ctx.lineTo(x, y); ctx.stroke(); ctx.setLineDash([]);
+  ctx.beginPath(); ctx.arc(x, y, 11, 0, 7); ctx.stroke();
+  ctx.fillStyle = '#ffb347'; ctx.font = 'bold 12px system-ui, sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('HEARD', x, y + 26);
+  ctx.restore();
+}
